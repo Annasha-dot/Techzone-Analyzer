@@ -1,0 +1,29 @@
+## This file contains the list of libraries required to be installed for the project ##
+
+## LangChain Core
+langchain
+langchain-core
+langchain-community
+
+# OpenAI Integration
+langchain-openai
+openai
+
+## Pydantic for data validation
+pydantic
+
+##Chroma for vector storage
+langchain-chroma
+chromadb
+
+## Streamlit for web interface
+streamlit
+
+## Environment variable management
+python-dotenv
+
+## Machine learning utilities
+pandas
+numpy
+scikit-learn
+matplotlib

@@ -1,0 +1,265 @@
+TZ_link: https://www.techzone.in/issues/management-001
+TZ_description: The management dashboard crashes consistently during peak hours when multiple administrators attempt to generate performance reports simultaneously.
+Problem_type: Crash
+Component: Management component
+Root_Causes: ["Database connection pool exhaustion", "Improper thread handling in report generation service"]
+Solutions: ["Increase database connection pool size", "Implement asynchronous report generation", "Apply service patch v1.2.3"]
+CDETS: ["CDETS-10001"]
+
+---
+TZ_link: https://www.techzone.in/issues/execution-002
+TZ_description: Execution module times out when processing large automation scripts exceeding 5000 lines.
+Problem_type: Timeout issues
+Component: Execution component
+Root_Causes: ["Unoptimized script parser", "Excessive nested loops in automation scripts"]
+Solutions: ["Optimize script parsing logic", "Split large scripts into modular components", "Increase execution timeout threshold"]
+CDETS: ["CDETS-10002","CDETS-10003"]
+
+---
+TZ_link: https://www.techzone.in/issues/data-003
+TZ_description: Data processing engine shows abnormally high CPU usage during nightly ETL jobs, leading to system lag for concurrent analytics users.
+Problem_type: High CPU usage
+Component: Data component
+Root_Causes: ["Inefficient aggregation queries", "Lack of index optimization", "Running too many jobs in parallel"]
+Solutions: ["Introduce batch scheduling", "Add database indexes on frequently queried columns", "Enable CPU affinity for ETL workers"]
+CDETS: ["CDETS-10004"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-004
+TZ_description: Static configuration service leaks memory gradually when administrators repeatedly reload firewall rule sets.
+Problem_type: Memory leaks
+Component: Static component
+Root_Causes: ["Memory not released after reload", "Improper cleanup of configuration objects"]
+Solutions: ["Patch memory allocator bug", "Add periodic garbage collection", "Apply vendor patch 3.5.7"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-005
+TZ_description: Users experience frequent disconnections from the protocol component due to unstable WAN links during peak usage.
+Problem_type: Network issues
+Component: Protocol component
+Root_Causes: ["Unstable WAN links", "Lack of connection retry mechanism", "Improper packet retransmission handling"]
+Solutions: ["Enable connection retries with exponential backoff", "Switch to TCP over UDP for critical sessions", "Monitor WAN stability with SNMP alerts"]
+CDETS: ["CDETS-10007"]
+
+---
+TZ_link: https://www.techzone.in/issues/management-006
+TZ_description: Remote nodes fail to respond to pings from the management console, causing false alarms in health monitoring dashboards.
+Problem_type: Ping failures
+Component: Management component
+Root_Causes: ["Blocked ICMP packets by firewall", "Misconfigured routing table"]
+Solutions: ["Update firewall rules to allow ICMP", "Validate routing entries for remote subnets"]
+
+
+---
+TZ_link: https://www.techzone.in/issues/execution-007
+TZ_description: Random script execution failures due to incorrect parsing of environment variables in execution component.
+Problem_type: Script failures
+Component: Execution component
+Root_Causes: ["Malformed environment variable inputs", "Outdated script parser library"]
+Solutions: ["Validate and sanitize script inputs", "Upgrade script parser module to v2.1.1"]
+
+
+---
+TZ_link: https://www.techzone.in/issues/data-008
+TZ_description: Data aggregation job crashes under concurrent queries when daily analytics jobs overlap with reporting.
+Problem_type: Crash
+Component: Data component
+Root_Causes: ["Database deadlocks", "Improper concurrency control mechanisms"]
+Solutions: ["Implement transaction isolation levels", "Introduce query queuing system"]
+CDETS: ["CDETS-10012"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-009
+TZ_description: Static config loader experiences frequent timeouts when multiple configuration reloads are triggered in high-availability clusters.
+Problem_type: Timeout issues
+Component: Static component
+Root_Causes: ["Config file parsing bottlenecks", "Cluster nodes waiting on global locks"]
+Solutions: ["Optimize parsing algorithm", "Implement distributed configuration caching"]
+CDETS: ["CDETS-10013"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-010
+TZ_description: Protocol component CPU usage spikes during TLS handshakes, impacting performance for real-time sessions.
+Problem_type: High CPU usage
+Component: Protocol component
+Root_Causes: ["No TLS session reuse enabled", "CPU-heavy cryptographic algorithm"]
+Solutions: ["Enable TLS session reuse", "Switch to hardware-accelerated crypto libraries"]
+CDETS: ["CDETS-10014"]
+
+---
+TZ_link: https://www.techzone.in/issues/management-011
+TZ_description: Memory usage in management service increases steadily after repeated user logins, eventually causing service restarts.
+Problem_type: Memory leaks
+Component: Management component
+Root_Causes: ["User sessions not being properly released", "Memory leak in authentication module"]
+Solutions: ["Fix session cleanup routines", "Apply memory leak patch from vendor"]
+CDETS: ["CDETS-10015"]
+
+---
+TZ_link: https://www.techzone.in/issues/execution-012
+TZ_description: Execution module drops packets when running over unstable VPN tunnels, leading to failed task execution.
+Problem_type: Network issues
+Component: Execution component
+Root_Causes: ["Unstable VPN tunnels", "No packet retransmission on failure"]
+Solutions: ["Enable VPN keepalive", "Switch to a stable IPSec protocol with redundancy"]
+CDETS: ["CDETS-10017"]
+
+---
+TZ_link: https://www.techzone.in/issues/data-013
+TZ_description: Data pipeline monitoring detects ping failures to downstream analytics servers, resulting in delayed reporting.
+Problem_type: Ping failures
+Component: Data component
+Root_Causes: ["Improper routing in data center switches", "Faulty NIC in analytics server"]
+Solutions: ["Validate routing tables", "Replace malfunctioning NIC"]
+CDETS: ["CDETS-10018"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-014
+TZ_description: Static config component script loader fails during YAML parsing, preventing system boot.
+Problem_type: Script failures
+Component: Static component
+Root_Causes: ["Corrupted YAML configuration files", "Unpatched YAML parser bug"]
+Solutions: ["Switch to JSON config format", "Update YAML parser to stable release"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-015
+TZ_description: Protocol module crashes under heavy malformed packet storms, causing downtime for connected clients.
+Problem_type: Crash
+Component: Protocol component
+Root_Causes: ["Lack of packet validation", "No DDoS mitigation rules"]
+Solutions: ["Implement strict packet validation filters", "Enable intrusion detection system"]
+CDETS: ["CDETS-10020"]
+
+---
+TZ_link: https://www.techzone.in/issues/management-016
+TZ_description: Management UI becomes unresponsive during long-running DB queries triggered by audit log exports.
+Problem_type: Timeout issues
+Component: Management component
+Root_Causes: ["Unoptimized audit log queries", "Missing database indexes"]
+Solutions: ["Add indexes for audit tables", "Use background jobs for exports"]
+CDETS: ["CDETS-10021", "CDETS-10022"]
+
+---
+TZ_link: https://www.techzone.in/issues/execution-017
+TZ_description: Execution service CPU spikes when handling parallel build requests, impacting job completion times.
+Problem_type: High CPU usage
+Component: Execution component
+Root_Causes: ["No resource throttling for builds", "Excessive parallelism without load distribution"]
+Solutions: ["Distribute build loads across nodes", "Enable incremental builds"]
+CDETS: ["CDETS-10023"]
+
+---
+TZ_link: https://www.techzone.in/issues/data-018
+TZ_description: Data service memory leaks when ingesting very large JSON payloads from upstream collectors.
+Problem_type: Memory leaks
+Component: Data component
+Root_Causes: ["Improper buffer release after JSON parsing", "Lack of streaming support for payloads"]
+Solutions: ["Stream JSON data instead of full buffering", "Upgrade JSON parser library to 4.5.2"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-019
+TZ_description: Static component loses network connectivity intermittently when deployed on servers with dual NICs.
+Problem_type: Network issues
+Component: Static component
+Root_Causes: ["Improper NIC bonding configuration", "Driver bug in multi-NIC support"]
+Solutions: ["Fix bonding configuration", "Apply latest kernel network patch"]
+CDETS: ["CDETS-10026"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-020
+TZ_description: Protocol handler fails to execute recovery script after crash, leaving sessions in hung state.
+Problem_type: Script failures
+Component: Protocol component
+Root_Causes: ["Recovery script lacks execution permissions", "Watchdog service not properly configured"]
+Solutions: ["Verify script permissions", "Add watchdog to restart process automatically"]
+CDETS: ["CDETS-10027"]
+
+---
+TZ_link: https://www.techzone.in/issues/management-021
+TZ_description: Management dashboard intermittently crashes when exporting more than 50,000 records to CSV format.
+Problem_type: Crash
+Component: Management component
+Root_Causes: ["Insufficient memory allocation during export", "CSV writer not handling large data sets efficiently"]
+Solutions: ["Paginate data exports", "Increase JVM heap size for management service", "Optimize CSV generation logic"]
+CDETS: ["CDETS-10028"]
+
+---
+TZ_link: https://www.techzone.in/issues/execution-022
+TZ_description: Execution jobs time out when network latency exceeds 200ms between master and worker nodes.
+Problem_type: Timeout issues
+Component: Execution component
+Root_Causes: ["Lack of network latency compensation in job scheduler", "Overloaded worker queues"]
+Solutions: ["Introduce latency-aware scheduling", "Rebalance workloads across worker nodes"]
+CDETS: ["CDETS-10029", "CDETS-10030"]
+
+---
+TZ_link: https://www.techzone.in/issues/data-023
+TZ_description: Data analytics queries consume excessive CPU resources during large-scale joins of customer and transaction datasets.
+Problem_type: High CPU usage
+Component: Data component
+Root_Causes: ["Full table scans due to missing indexes", "Suboptimal query execution plans"]
+Solutions: ["Add composite indexes", "Enable query plan caching", "Partition large tables"]
+CDETS: ["CDETS-10031"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-024
+TZ_description: Static configuration service exhibits memory leaks when repeatedly applying ACL updates in a high-availability cluster.
+Problem_type: Memory leaks
+Component: Static component
+Root_Causes: ["ACL objects not released after updates", "Improper cleanup in HA sync module"]
+Solutions: ["Fix ACL memory management routines", "Apply vendor patch for HA synchronization"]
+CDETS: ["CDETS-10032"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-025
+TZ_description: Users report frequent packet drops in the protocol component when switching between 4G and Wi-Fi networks.
+Problem_type: Network issues
+Component: Protocol component
+Root_Causes: ["Session renegotiation delays", "Poor handling of network handoffs"]
+Solutions: ["Enable seamless session migration", "Optimize protocol for mobile network switching"]
+CDETS: ["CDETS-10033", "CDETS-10034"]
+
+---
+TZ_link: https://www.techzone.in/issues/management-026
+TZ_description: Ping failures occur between management servers in multi-region deployments, causing delayed synchronization.
+Problem_type: Ping failures
+Component: Management component
+Root_Causes: ["Firewall rules blocking ICMP across regions", "Incorrect DNS resolution in multi-region setup"]
+Solutions: ["Update firewall rules to permit ICMP", "Fix DNS entries for cross-region communication"]
+CDETS: ["CDETS-10035"]
+
+---
+TZ_link: https://www.techzone.in/issues/execution-027
+TZ_description: Execution service fails to run certain Python scripts due to missing dependencies in the containerized environment.
+Problem_type: Script failures
+Component: Execution component
+Root_Causes: ["Python dependency mismatch", "Missing virtual environment initialization"]
+Solutions: ["Add dependency checks before execution", "Bundle required packages in container images"]
+CDETS: ["CDETS-10036", "CDETS-10037"]
+
+---
+TZ_link: https://www.techzone.in/issues/data-028
+TZ_description: Data ingestion pipeline crashes when encountering malformed JSON files from external sources.
+Problem_type: Crash
+Component: Data component
+Root_Causes: ["No schema validation for incoming JSON", "Parser fails on unexpected fields"]
+Solutions: ["Add JSON schema validation", "Implement fallback error handling for bad files"]
+CDETS: ["CDETS-10038"]
+
+---
+TZ_link: https://www.techzone.in/issues/static-029
+TZ_description: Static configuration loader times out while applying large-scale firewall rules across 5000+ nodes.
+Problem_type: Timeout issues
+Component: Static component
+Root_Causes: ["Synchronous rule distribution", "No batching mechanism for large deployments"]
+Solutions: ["Enable batched distribution of rules", "Parallelize updates across node groups"]
+CDETS: ["CDETS-10039"]
+
+---
+TZ_link: https://www.techzone.in/issues/protocol-030
+TZ_description: Protocol handler consumes excessive CPU during real-time video streaming sessions.
+Problem_type: High CPU usage
+Component: Protocol component
+Root_Causes: ["Unoptimized codec negotiation", "Lack of hardware acceleration support"]
+Solutions: ["Enable GPU-based video encoding", "Cache codec negotiation results"]
+CDETS: ["CDETS-10040", "CDETS-10041"]
